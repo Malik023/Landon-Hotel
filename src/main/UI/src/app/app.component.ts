@@ -15,8 +15,11 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
   messages: string[] = [];
+  convertedTimes: String[] = [];
 
   constructor(private httpClient:HttpClient){}
+
+
 
 
 
@@ -25,7 +28,18 @@ export class AppComponent implements OnInit{
     return this.httpClient.get<string[]>(base1URL);
   }
 
+  fetchConvertedTimes(): void {
+    this.httpClient.get<string[]>('http://localhost:8080/api/timezone/presentation-time')
+      .subscribe(times => {
+        this.convertedTimes = times;
+      });
+  }
+
+
   private baseURL:string='http://localhost:8080';
+
+
+
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
@@ -47,6 +61,13 @@ export class AppComponent implements OnInit{
       this.getWelcomeMessage().subscribe((data: string[]) => {
         this.messages = data;
       });
+
+      this.fetchConvertedTimes();
+
+
+
+
+
 
  //     this.rooms=ROOMS;
 
