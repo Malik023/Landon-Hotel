@@ -14,8 +14,16 @@ import {map} from "rxjs/operators";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  messages: string[] = [];
 
   constructor(private httpClient:HttpClient){}
+
+
+
+  getWelcomeMessage(): Observable<string[]> {
+    const base1URL = 'http://localhost:8080/api/messages/welcome';
+    return this.httpClient.get<string[]>(base1URL);
+  }
 
   private baseURL:string='http://localhost:8080';
 
@@ -32,6 +40,12 @@ export class AppComponent implements OnInit{
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
+
+
+      });
+
+      this.getWelcomeMessage().subscribe((data: string[]) => {
+        this.messages = data;
       });
 
  //     this.rooms=ROOMS;
