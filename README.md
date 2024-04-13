@@ -1,8 +1,10 @@
 # Landon Hotel Website
 
 Welcome to the Landon Hotel website project! This project aims to create a modern and user-friendly website for the Landon Hotel, showcasing its amenities, services, and offerings to potential guests.
-
-![Welcome_Image](images/homepage.png)
+<br />
+<br />
+<br />
+![Welcome_Image](images/WelcomePage.png)
 
 ## Overview
 The Landon Hotel website is designed to provide visitors with an immersive experience, allowing them to explore the hotel's rooms, facilities, and special offers. The website features a responsive design, ensuring optimal viewing across various devices, including desktops, tablets, and smartphones.
